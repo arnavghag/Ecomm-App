@@ -8,7 +8,7 @@ on :
 
 jobs:
   build-and-deploy:
-    runs-on :
+    runs-on : ubuntu-latest
 
     steps :
     # setup
@@ -27,13 +27,13 @@ jobs:
       uses : docker/build-push-action@v5
       with :
         context : ./backend             # folder where the script is to be implemented
-        push : true  # command that ensure push
+                              # command that ensure push
         tags : ${{ secrets.DOCKER_USERNAME }}/ecommerce-application-backend:latest
 
     # build and push the frontend image to dockerhub
     - name :  Build and Push Frontend
       uses : docker/build-push-action@v5
       with :
-        context :             # folder where the script is to be implemented
+        context : ./frontend             # folder where the script is to be implemented
         push : true
-        tags :                # the name that our file would have
+        tags : ${{ secrets.DOCKER_USERNAME }}/ecommerce-application-frontend:latest
