@@ -23,7 +23,7 @@ jobs:
         working-directory: ./backend
 
     steps:
-      # get the code from the repo
+      # get the code from the repo 
       - name : Checkout Code
         uses : actions/checkout@v4
 
